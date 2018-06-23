@@ -4,7 +4,13 @@ Node Performance Test - Benchmark Server Performance
 
 # Cluster
 
-PM2
+<pre><code>
+if (cluster.isMaster) {
+    cluster.fork();
+}
+</code></pre>
+
+# PM2
 
 https://github.com/Unitech/pm2
 
