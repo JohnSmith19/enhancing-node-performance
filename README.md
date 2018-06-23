@@ -1,5 +1,6 @@
 # Node Performance
-Node Performance Test -  Benchmark Server Performance
+
+Node Performance Test - Benchmark Server Performance
 
 # Cluster
 
@@ -7,7 +8,7 @@ PM2
 
 https://github.com/Unitech/pm2
 
-$ sudo apt install pm2
+$ sudo npm install -g pm2
 
 pm2 start index.js -i 0
 
