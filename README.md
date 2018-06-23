@@ -20,7 +20,7 @@ pm2 monit
 
 pm2 delete index
 
-# Perfomence Test
+# Performance Test
 
 $ sudo apt install apache2-utils
 
