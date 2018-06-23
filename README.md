@@ -5,6 +5,8 @@ Node Performance Test - Benchmark Server Performance
 # Cluster
 
 <pre><code>
+const cluster = require("cluster");
+
 if (cluster.isMaster) {
     cluster.fork();
 }
