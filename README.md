@@ -28,6 +28,12 @@ pm2 monit
 
 pm2 delete index
 
+# Thread Pool
+
+<pre><code>
+process.env.UV_THREADPOOL_SIZE = 4;
+</code></pre>
+
 # Performance Test
 
 $ sudo apt install apache2-utils
