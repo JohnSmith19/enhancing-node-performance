@@ -1,11 +1,25 @@
 const express = require("express");
 const crypto = require("crypto");
 const app = express();
+const Worker = require("webworker-threads").Worker;
 
 app.get("/", (req, res) => {
-  crypto.pbkdf2("a", "b", 100000, 512, "sha512", () => {
-    res.send("Hi there");
+  const worker = new Worker(function() {
+    this.onmessage = function() {
+      let counter = 0;
+      while (counter < 1e9) {
+        counter++;
+      }
+
+      postMessage(counter);
+    };
   });
+
+  worker.onmessage = function(myCounter) {
+    console.log(myCounter);
+  };
+
+  worker.postMessage();
 });
 
 app.get("/fast", (req, res) => {
@@ -13,3 +27,10 @@ app.get("/fast", (req, res) => {
 });
 
 app.listen(3000);
+
+// https://github.com/Unitech/pm2
+// pm2 start index.js -i 0
+// pm2 list
+// pm2 show index
+// pm2 monit
+// pm2 delete index
